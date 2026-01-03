@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon/favicon.png" type="image/png">
+    <title>Trabajo | Knnabiz</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: black;
+        }
+
+        .center-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            z-index: 10;
+            position: relative;
+            background: #000;
+            padding: 5px;
+            box-shadow: 0 0 50px #fff;
+            border: 2px solid #fff;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .center-avatar:active {
+            transform: scale(0.95);
+        }
+
+        .center-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Capa del susto */
+        .screamer-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+
+        .screamer-img {
+            width: 50%;
+            height: auto;
+            transform: scale(0.1);
+            animation: zoomIn 0.2s forwards;
+        }
+
+        @keyframes zoomIn {
+            to {
+                transform: scale(1.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center-avatar" id="clickArea">
+        <img src="/assets/avatar/avatar.png" alt="Avatar">
+    </div>
+
+    <!-- Elemento de audio oculto -->
+    <audio id="screamerSound" src="/assets/sounds/screamer.ogg"></audio>
+
+    <div class="screamer-container" id="screamerOverlay">
+        <img src="/assets/image/trabajo.png" alt="Trabajo" class="screamer-img">
+    </div>
+
+    <script>
+        const clickArea = document.getElementById('clickArea');
+        const screamerOverlay = document.getElementById('screamerOverlay');
+        const screamerSound = document.getElementById('screamerSound');
+
+        clickArea.addEventListener('click', () => {
+            // Mostramos la imagen
+            screamerOverlay.style.display = 'flex';
+
+            // Reproducimos el sonido (el clic lo permite)
+            screamerSound.currentTime = 0;
+            screamerSound.volume = 1.0;
+            screamerSound.play().catch(e => console.error("Error al reproducir audio:", e));
+
+            // Opcional: ¿Ocultarlo de nuevo? El usuario solo pidio mostrarlo.
+        });
+    </script>
+</body>
+
+</html>

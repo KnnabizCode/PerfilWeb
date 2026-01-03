@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon/favicon.png" type="image/png">
+    <title>Perfil | Knnabiz</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Mostrar barra de carga al entrar a la página -->
+    <div id="preloader">
+        <div class="loader-content">
+            <h2 class="loader-text">BIENVENIDO</h2>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#projects">Mis Proyectos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido del Inicio -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <p class="greeting">Hola, soy Knnabiz<span class="wave">👋</span></p>
+            <h1 class="hero-title"><span class="typing-text"></span><span class="cursor">|</span></h1>
+        </div>
+
+        <!-- Orbita decorativa -->
+        <div class="hero-visual">
+            <div class="orbit-system">
+                <!-- Avatar central -->
+                <div class="center-avatar">
+                    <img src="/assets/avatar/avatar.png" alt="Avatar" id="avatar-img">
+                </div>
+
+                <!-- Iconos para la orbita -->
+                <a href="https://discord.com/users/462267628816433182" target="_blank" class="tech-icon icon-1"><img
+                        src="/assets/icons/discord.png" alt="Discord"></a>
+                <a href="https://knnabiz.vip/trabajo" target="_blank" class="tech-icon icon-2"><img
+                        src="/assets/icons/dinero.png" alt="Dinero"></a>
+                <a href="https://www.roblox.com/es/users/4119890087/profile" target="_blank"
+                    class="tech-icon icon-3"><img src="/assets/icons/roblox.png" alt="Roblox"></a>
+                <a href="https://github.com/KnnabizCode" target="_blank" class="tech-icon icon-4"><img
+                        src="/assets/icons/github.png" alt="GitHub"></a>
+                <a href="https://knnabiz.vip/trabajo" target="_blank" class="tech-icon icon-5"><img
+                        src="/assets/icons/trabajo.png" alt="Trabajo"></a>
+                <a href="https://es.namemc.com/profile/KnnabizDev.1" target="_blank" class="tech-icon icon-6"><img
+                        src="/assets/icons/minecraft.png" alt="Minecraft"></a>
+            </div>
+            <!-- Efecto de luz -->
+            <div class="glow-effect"></div>
+        </div>
+    </section>
+
+    <!-- Seccion Proyectos -->
+    <section id="projects" class="projects-section">
+        <a href="https://github.com/KnnabizCode/Typhera/releases" target="_blank" class="project-card">
+            <div class="project-info">
+                <h3>Typhera</h3>
+                <p>Reproduce sonidos de teclado personalizados durante la escritura, funcionando en segundo plano sin
+                    impacto en el rendimiento.</p>
+            </div>
+            <div class="project-arrow">→</div>
+        </a>
+
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

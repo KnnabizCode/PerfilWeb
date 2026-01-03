@@ -1,0 +1,531 @@
+:root {
+    --bg-color: #000000;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    /* Slightly dim */
+    --accent: #ff0000;
+    /* Subtle red accent if needed, or stick to white */
+    --border-color: #333333;
+
+    font-family: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at top center, #000000, #1e1e2e);
+    min-height: 100vh;
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-text {
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    font-weight: 300;
+    animation: fadePulse 1.5s infinite alternate;
+}
+
+@keyframes fadePulse {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.loading-bar-container {
+    width: 200px;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 100%;
+    background: #fff;
+    animation: loadProgress 2.5s ease-in-out forwards;
+}
+
+@keyframes loadProgress {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Estilos de la barra de navegacion (Navbar) */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 4rem;
+    display: flex;
+    justify-content: center;
+    /* Centramos el contenido */
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    /* Efecto de cristal */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #ffffff;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: center;
+    /* Cambiado de space-between a center */
+    align-items: center;
+    position: relative;
+    /* Contexto para posicionar logo si lo usamos */
+}
+
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-links a.active {
+    color: var(--text-primary);
+    border-bottom: 3px solid #ffffff;
+}
+
+/* Seccion Principal (Hero) */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem;
+    height: 100vh;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Contenido de la izquierda */
+.hero-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.greeting {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.wave {
+    display: inline-block;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(14deg);
+    }
+
+    20% {
+        transform: rotate(-8deg);
+    }
+
+    30% {
+        transform: rotate(14deg);
+    }
+
+    40% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero-title span.cursor {
+    color: var(--accent);
+    font-weight: 300;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--accent);
+    /* Borde rojo opcional */
+    color: var(--accent);
+    /* O blanco */
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    margin-bottom: 3rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+/* Si el rojo es muy fuerte podemos usar blanco */
+:root {
+    --accent: #ff3333;
+    /* Intento de toque rojo */
+    --accent: #ffffff;
+}
+
+.social-links-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links-row a {
+    color: var(--text-secondary);
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    display: flex;
+    transition: all 0.3s;
+}
+
+.social-links-row a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Contenido de la derecha - Efecto Orbital */
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.orbit-system {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 10;
+    position: relative;
+    background: #000;
+    padding: 5px;
+    /* Brillo pedido por el usuario */
+    box-shadow: 0 0 50px #fff;
+    border: 2px solid #fff;
+}
+
+.center-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tech-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    animation: float 6s ease-in-out infinite;
+}
+
+.tech-icon img {
+    width: 25px;
+    /* Tamano fijo chico */
+    height: 25px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Posicionando iconos a mano para que parezca orbital */
+/* 1: Discord (Imagen) */
+.icon-1 {
+    bottom: 10%;
+    left: 30%;
+    animation-delay: 3s;
+    border: 1px solid #5865F2;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+}
+
+/* 2: Dinero (Imagen) */
+.icon-2 {
+    top: 15%;
+    left: 15%;
+    animation-delay: 2s;
+    border: 1px solid #C9B037;
+    box-shadow: 0 0 15px rgba(201, 176, 55, 0.4);
+}
+
+/* 3: Roblox (Imagen) */
+.icon-3 {
+    top: 10%;
+    right: 20%;
+    animation-delay: 0s;
+    border: 1px solid #E6332E;
+    box-shadow: 0 0 15px rgba(230, 51, 46, 0.4);
+}
+
+/* 4: GitHub (Imagen) */
+.icon-4 {
+    top: 40%;
+    right: 0%;
+    animation-delay: 1s;
+    border: 1px solid #F0F0F0;
+    box-shadow: 0 0 15px rgba(240, 240, 240, 0.4);
+}
+
+/* 5: Trabajo (Imagen) */
+.icon-5 {
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 2s;
+    border: 1px solid #FF6600;
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
+}
+
+/* 6: Minecraft (Imagen) */
+.icon-6 {
+    top: 40%;
+    left: 0%;
+    animation-delay: 4s;
+    border: 1px solid #487D32;
+    box-shadow: 0 0 15px rgba(72, 125, 50, 0.4);
+}
+
+/* Python */
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.glow-effect {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Responsivo (Celulares y tablets) */
+@media (max-width: 900px) {
+    .header {
+        padding: 1rem 2rem;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding-top: 6rem;
+    }
+
+    .hero-content {
+        margin-bottom: 3rem;
+    }
+
+    .hero-description {
+        margin: 0 auto 2rem;
+    }
+
+    .social-links-row {
+        justify-content: center;
+    }
+
+    .orbit-system {
+        width: 350px;
+        height: 350px;
+    }
+
+    .center-avatar {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Boton scroll eliminado */
+
+/* Seccion Proyectos */
+.projects-section {
+    min-height: 100vh;
+    /* background-color: var(--bg-color); REMOVED to show body gradient */
+    display: flex;
+    flex-direction: column;
+    /* Permitir apilar */
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    border-top: 1px solid #111;
+    position: relative;
+    /* Contexto para posicionamiento absoluto */
+}
+
+.project-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #050505;
+    border: 1px solid var(--border-color);
+    padding: 2rem 3rem;
+    width: 100%;
+    max-width: 800px;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-info h3 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.project-arrow {
+    font-size: 2rem;
+    color: var(--text-secondary);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.projects-section .project-card:hover {
+    border-color: var(--text-primary);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.project-card:hover .project-arrow {
+    color: var(--text-primary);
+    transform: translateX(10px);
+}
+
+/* Boton scroll arriba eliminado */
+
+.arrow-up {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Animaciones de entrada */
